@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: grpc-web-front
+  name: grpc-web-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: grpc-web-front
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        run: grpc-web-front
+    spec:
+      containers:
+      - image: teddyyy/grpc-web-front:latest
+        name: grpc-web-front
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+status: {}
