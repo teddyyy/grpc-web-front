@@ -1,4 +1,4 @@
-FROM  node:10.5.0-alpine
+FROM  node:10.5.0-slim
 WORKDIR /client
 COPY . .
 RUN yarn install
