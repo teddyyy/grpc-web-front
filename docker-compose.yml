@@ -1,0 +1,6 @@
+version: '3'
+services:
+  grpc-web-front:
+    image: teddyyy/grpc-web-front
+    ports:
+      - "3000:3000"
