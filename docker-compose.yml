@@ -4,3 +4,10 @@ services:
     image: teddyyy/grpc-web-front
     ports:
       - "3000:3000"
+
+  grpc-web-front-ci:
+    image: teddyyy/grpc-web-front-ci:latest
+    environment:
+      - ENV
+    ports:
+      - "3000:3000"
