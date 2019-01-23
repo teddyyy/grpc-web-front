@@ -3,6 +3,7 @@ import "./App.css";
 
 import { HelloRequest } from "./helloworld/helloworld_pb";
 import { GreeterClient } from "./helloworld/HelloworldServiceClientPb";
+import { Env } from './resources/env';
 
 const initialState = {
   inputText: "World",
@@ -12,6 +13,7 @@ type State = Readonly<typeof initialState>;
 
 class App extends React.Component<{}, State> {
   public readonly state: State = initialState;
+  public readonly env = new Env();
 
   public render() {
     return (
@@ -28,7 +30,7 @@ class App extends React.Component<{}, State> {
     const request = new HelloRequest();
     request.setName(this.state.inputText);
 
-    const client = new GreeterClient("http://192.168.99.103:31329", {}, {});
+    const client = new GreeterClient(this.env.proxyURL, {}, {});
     client.sayHello(request, {}, (err, ret) => {
       if (err || ret === null) {
         throw err;
