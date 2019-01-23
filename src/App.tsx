@@ -16,11 +16,8 @@ class App extends React.Component<{}, State> {
   public render() {
     return (
       <div className="App">
-        <input
-          type="text"
-          value={this.state.inputText}
-          onChange={this.onChange}
-        />
+        <p>入力した文字をエコーするだけのアプリ</p>
+        <input type="text" value={this.state.inputText} onChange={this.onChange}/>
         <button onClick={this.onClick}>Send</button>
         <p>{this.state.message}</p>
       </div>
@@ -31,7 +28,7 @@ class App extends React.Component<{}, State> {
     const request = new HelloRequest();
     request.setName(this.state.inputText);
 
-    const client = new GreeterClient("http://192.168.99.102:30069", {}, {});
+    const client = new GreeterClient("http://192.168.99.103:31329", {}, {});
     client.sayHello(request, {}, (err, ret) => {
       if (err || ret === null) {
         throw err;

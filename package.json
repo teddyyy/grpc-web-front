@@ -1,6 +1,6 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "grpc-web-front",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "create-react-app": "^2.1.3",
