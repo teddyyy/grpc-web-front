@@ -20,7 +20,7 @@ jobs:
       - run:
           command: apk add --no-cache ca-certificates
       - run:
-          command: npm i && npm run build
+          command: npm i && npm run _build
       - persist_to_workspace:
           root: .
           paths:
