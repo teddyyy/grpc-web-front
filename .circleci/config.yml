@@ -18,11 +18,12 @@ jobs:
       - checkout
       - setup_remote_docker: {docker_layer_caching: true}
       - run:
-          command: echo "build"
+          command: touch grpc-web-front-dev.tar && touch grpc-web-front-prd.tar
       - persist_to_workspace:
-          root: .
+          root: ~/grpc-web-front
           paths:
-            - .
+            - grpc-web-front-dev.tar
+            - grpc-web-front-prd.tar
   package:
     docker:
       - image: errordeveloper/skaffold:66cc263ef18f107adce245b8fc622a8ea46385f2
