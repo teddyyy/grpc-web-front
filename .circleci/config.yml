@@ -3,32 +3,22 @@ version: 2
 jobs:
   test:
     docker:
-      - image: golang:1.10.1
-    working_directory: ~/grpc-web-server
+      - image: node:10.5.0-alpine
+    working_directory: ~/grpc-web-front
     steps:
       - checkout
       - setup_remote_docker: {docker_layer_caching: true}
       - run:
-          command: go tool vet main.go
+          command: echo "test"
   build:
     docker:
-      - image: golang:1.10.1
-    environment:
-      - GOPATH: /home/circleci/go
-    working_directory: /home/circleci/go/src/github.com/teddyyy/grpc-web-server
+      - image: node:10.5.0-alpine
+    working_directory: ~/grpc-web-front
     steps:
       - checkout
       - setup_remote_docker: {docker_layer_caching: true}
       - run:
-          command: apt-get -y update && apt-get -y install libprotobuf-dev libprotoc-dev protobuf-compiler
-      - run:
-          command: mkdir plugin/ && cd plugin/ && git clone https://github.com/grpc/grpc-web && cd grpc-web/ && make install-plugin
-      - run:
-          command: go get -u google.golang.org/grpc
-      - run:
-          command: go get -u github.com/golang/protobuf/protoc-gen-go
-      - run:
-          command: cd /home/circleci/go/src/github.com/teddyyy/grpc-web-server && GOOS=linux go build -o bin/server main.go
+          command: echo "build"
       - persist_to_workspace:
           root: .
           paths:
@@ -36,7 +26,7 @@ jobs:
   package:
     docker:
       - image: errordeveloper/skaffold:66cc263ef18f107adce245b8fc622a8ea46385f2
-    working_directory: ~/grpc-web-server
+    working_directory: ~/grpc-web-front
     steps:
       - checkout
       - setup_remote_docker: {docker_layer_caching: true}
