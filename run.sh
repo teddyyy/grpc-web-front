@@ -5,7 +5,7 @@ if [ -d build ]; then
 fi
 
 if [ -z $ENV ]; then
-    tar xzvf grpc-web-front.tar
+    tar xzvf grpc-web-front-local.tar
 else
     tar xzvf grpc-web-front-$ENV.tar
 fi

@@ -12,11 +12,12 @@
   },
   "scripts": {
     "start": "react-scripts-ts start",
-    "build": "gulp build --env local && react-scripts-ts build",
+    "build": "npm run build:local",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",
     "gulp": "gulp",
-    "_build": "npm run build:dev && npm run build:prd && tar zcvf grpc-web-front.tar grpc-web-front-*.tar",
+    "_build": "npm run build:local && npm run build:dev && npm run build:prd && tar zcvf grpc-web-front.tar grpc-web-front-*.tar",
+    "build:local": "gulp build --env local && react-scripts-ts build && tar zcvf grpc-web-front-local.tar ./build/",
     "build:dev": "gulp build --env dev && react-scripts-ts build && tar zcvf grpc-web-front-dev.tar ./build/",
     "build:prd": "gulp build --env prd && react-scripts-ts build && tar zcvf grpc-web-front-prd.tar ./build/"
   },
