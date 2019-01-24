@@ -18,6 +18,8 @@ jobs:
       - checkout
       - setup_remote_docker: {docker_layer_caching: true}
       - run:
+          command: apk add --no-cache ca-certificates
+      - run:
           command: touch grpc-web-front-dev.tar && touch grpc-web-front-prd.tar
       - persist_to_workspace:
           root: .
