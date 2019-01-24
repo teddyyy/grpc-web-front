@@ -9,7 +9,9 @@ jobs:
       - checkout
       - setup_remote_docker: {docker_layer_caching: true}
       - run:
-          command: echo "test"
+          command: yarn add -D tslint
+      - run:
+          command: yarn tslint src/App.tsx
   build:
     docker:
       - image: node:10.5.0-alpine
