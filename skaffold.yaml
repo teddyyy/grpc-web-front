@@ -1,8 +1,10 @@
+---
 apiVersion: skaffold/v1alpha2
 kind: Config
 build:
   artifacts:
-  - image: teddyyy/grpc-web-front
+  - imageName: teddyyy/grpc-web-front
+    docker:
 deploy:
   kubectl:
     manifests:
@@ -16,5 +18,4 @@ profiles:
       artifacts:
         - imageName: teddyyy/grpc-web-front
           docker:
-            dockerfilePath: ./Dockerfile.ci
     deploy: {}  # not needed here as such

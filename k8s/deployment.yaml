@@ -1,3 +1,4 @@
+---
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
@@ -16,12 +17,15 @@ spec:
         run: grpc-web-front
     spec:
       containers:
-      - image: teddyyy/grpc-web-front:latest
+      - image: teddyyy/grpc-web-front
         name: grpc-web-front
+        envFrom:
+        - configMapRef:
+            name: grpc-web-front-config
         ports:
         - containerPort: 3000
         resources:
           requests:
             cpu: 100m
-            memory: 300Mi
+            memory: 100Mi
 status: {}
