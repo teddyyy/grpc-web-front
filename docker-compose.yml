@@ -6,7 +6,7 @@ services:
       - "3000:3000"
 
   grpc-web-front-ci:
-    image: teddyyy/grpc-web-front-ci:latest
+    image: teddyyy/grpc-web-front:latest
     environment:
       - ENV
     ports:
