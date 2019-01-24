@@ -20,10 +20,9 @@ jobs:
       - run:
           command: touch grpc-web-front-dev.tar && touch grpc-web-front-prd.tar
       - persist_to_workspace:
-          root: ~/grpc-web-front
+          root: .
           paths:
-            - grpc-web-front-dev.tar
-            - grpc-web-front-prd.tar
+            - .
   package:
     docker:
       - image: errordeveloper/skaffold:66cc263ef18f107adce245b8fc622a8ea46385f2
