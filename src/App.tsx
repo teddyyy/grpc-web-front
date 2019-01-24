@@ -28,7 +28,6 @@ class App extends React.Component<{}, State> {
 
   private onClick = () => {
     const request = new HelloRequest();
-    let hoge = '';
     request.setName(this.state.inputText);
 
     const client = new GreeterClient(this.env.proxyURL, {}, {});
