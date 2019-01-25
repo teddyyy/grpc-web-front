@@ -1,0 +1,11 @@
+piVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: grpc-web-front-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: grpc-web-front
+          servicePort: 3000
