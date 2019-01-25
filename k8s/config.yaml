@@ -4,4 +4,4 @@ kind: ConfigMap
 metadata:
   name: grpc-web-front-config
 data:
-  ENV: ""
+  ENV: dev
