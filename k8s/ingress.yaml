@@ -3,9 +3,6 @@ kind: Ingress
 metadata:
   name: grpc-web-front-ingress
 spec:
-  rules:
-  - http:
-      paths:
-      - backend:
-          serviceName: grpc-web-front
-          servicePort: 3000
+  - backend:
+      serviceName: grpc-web-front
+      servicePort: 3000
