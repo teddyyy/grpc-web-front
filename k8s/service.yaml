@@ -4,11 +4,12 @@ kind: Service
 metadata:
   name: grpc-web-front
   annotations:
-    service.alpha.kubernetes.io/app-protocols: '{"fe":"HTTP2"}'
+    service.alpha.kubernetes.io/app-protocols: '{"front-port":"HTTP2"}'
 spec:
   type: LoadBalancer
   ports:
-  - port: 3000
+  - name: front-port
+    port: 3000
     targetPort: 3000
   selector:
     run: grpc-web-front
