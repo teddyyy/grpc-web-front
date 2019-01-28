@@ -9,13 +9,3 @@ deploy:
   kubectl:
     manifests:
       - k8s/*
-
-profiles:
-  - name: prd
-    ## This profile runs unit tests and builds the image
-    build:
-      local: {skipPush: false}
-      artifacts:
-        - imageName: teddyyy/grpc-web-front
-          docker:
-    deploy: {}  # not needed here as such
