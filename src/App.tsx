@@ -6,7 +6,7 @@ import { GreeterClient } from "./helloworld/HelloworldServiceClientPb";
 import { Env } from './resources/env';
 
 const initialState = {
-  inputText: "World",
+  inputText: "Kubernetes",
   message: ""
 };
 type State = Readonly<typeof initialState>;
