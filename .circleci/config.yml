@@ -45,7 +45,6 @@ jobs:
             echo ${GCLOUD_SERVICE_KEY} | base64 --decode > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
             gcloud --quiet auth configure-docker
-            kubectl config get-contexts
       - run:
           name: docker build & push
           command: |
@@ -56,6 +55,10 @@ jobs:
             else
               echo "Do not run docker"
             fi
+      - run:
+          name: deploy to k8s cluster
+          command: |
+            kubectl patch deployment grpc-web-front -p "{\"spec\": {\"template\": {\"metadata\": {\"labels\": {\"date\": \"$(date +'%s')\" }}}}}"
 
 workflows:
   version: 2
