@@ -38,7 +38,7 @@ jobs:
           at: .
       - run:
           name: install kubectl
-          command: gcloud components install kubectl
+          command: apt-get update && apt-get install kubectl
       - run:
           name: gcloud auth
           command: |
