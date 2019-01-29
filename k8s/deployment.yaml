@@ -17,7 +17,7 @@ spec:
         run: grpc-web-front
     spec:
       containers:
-      - image: asia.gcr.io/agdc-k8s/grpc-web-front:v0.0.5
+      - image: asia.gcr.io/agdc-k8s/grpc-web-front:latest
         name: grpc-web-front
         envFrom:
         - configMapRef:
