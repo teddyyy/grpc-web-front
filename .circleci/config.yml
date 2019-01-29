@@ -37,11 +37,15 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: install kubectl
+          command: gcloud components install kubectl
+      - run:
           name: gcloud auth
           command: |
             echo ${GCLOUD_SERVICE_KEY} | base64 --decode > ${HOME}/gcloud-service-key.json
             gcloud auth activate-service-account --key-file ${HOME}/gcloud-service-key.json
             gcloud --quiet auth configure-docker
+            kubectl config get-contexts
       - run:
           name: docker build & push
           command: |
