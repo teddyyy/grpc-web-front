@@ -19,6 +19,7 @@ spec:
       containers:
       - image: asia.gcr.io/agdc-k8s/grpc-web-front:latest
         name: grpc-web-front
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: grpc-web-front-config
