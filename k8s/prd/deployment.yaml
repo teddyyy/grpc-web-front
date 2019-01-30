@@ -1,0 +1,27 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: grpc-web-front
+  name: grpc-web-front
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: grpc-web-front
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        run: grpc-web-front
+    spec:
+      containers:
+      - image: asia.gcr.io/agdc-k8s/grpc-web-front:5ff52205bd4f360b9a97024ce6c1ff7231d7383d
+        name: grpc-web-front
+        envFrom:
+        - configMapRef:
+            name: grpc-web-front-config
+        ports:
+        - containerPort: 3000        
+status: {}
