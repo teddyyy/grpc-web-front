@@ -2,10 +2,10 @@
 apiVersion: skaffold/v1alpha2
 kind: Config
 build:
+  local: { skipPush: true }
   artifacts:
-  - imageName: teddyyy/grpc-web-front
-    docker:
+  - imageName: asia.gcr.io/agdc-k8s/grpc-web-front
 deploy:
   kubectl:
     manifests:
-      - k8s/*
+      - k8s/local/*
