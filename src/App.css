@@ -8,14 +8,18 @@
 }
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: #202;
+  height: 50px;
   padding: 20px;
+  color: white;
+}
+.App-header-navbrand {
   color: white;
 }
 
 .App-title {
-  font-size: 1.5em;
+  color: #666;
+  font-size: 1.2em;
 }
 
 .App-intro {
@@ -23,7 +27,7 @@
 }
 
 .App-input {
-  size: 20
+  margin: 5px;
 }
 
 @keyframes App-logo-spin {

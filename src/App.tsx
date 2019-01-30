@@ -1,7 +1,7 @@
 import "./App.css";
 import * as React from "react";
 
-import { Button } from 'reactstrap';
+import { Button, Navbar, NavbarBrand } from 'reactstrap';
 import { Env } from './resources/env';
 import { GreeterClient } from "./helloworld/HelloworldServiceClientPb";
 import { HelloRequest } from "./helloworld/helloworld_pb";
@@ -18,9 +18,14 @@ class App extends React.Component<{}, State> {
 
   public render() {
     return (
-      <div className="App" key="one">
-        <p>入力した文字をエコーするだけのアプリ</p>
-        <input type="text" value={this.state.inputText} onChange={this.onChange} placeholder="Enter"/>
+      <div className="App">
+        <header>
+          <Navbar color="dark"  class="navbar navbar-default" bg="light" expand="lg">
+            <NavbarBrand href="#home" className="App-header-navbrand">Echo App</NavbarBrand>
+          </Navbar>
+        </header>
+        <br /><span className="App-title">文字を返すだけ</span><br />
+        <input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
         <Button onClick={this.onClick} class="btn btn-primary" color="info">Submit</Button>
         <p>{this.state.message}</p>
       </div>
