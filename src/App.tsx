@@ -24,9 +24,10 @@ class App extends React.Component<{}, State> {
             <NavbarBrand href="#home" className="App-header-navbrand">Echo App</NavbarBrand>
           </Navbar>
         </header>
-        <br /><span className="App-title">文字を返すだけ</span><br />
+        <br /><span className="App-title">Hello!</span><br />
         <input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
         <Button onClick={this.onClick} class="btn btn-primary" color="info">Submit</Button>
+        <hr />
         <p>{this.state.message}</p>
       </div>
     );
