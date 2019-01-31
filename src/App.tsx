@@ -1,9 +1,10 @@
-import * as React from "react";
 import "./App.css";
+import * as React from "react";
 
-import { HelloRequest } from "./helloworld/helloworld_pb";
-import { GreeterClient } from "./helloworld/HelloworldServiceClientPb";
+import { Button, Navbar, NavbarBrand } from 'reactstrap';
 import { Env } from './resources/env';
+import { GreeterClient } from "./helloworld/HelloworldServiceClientPb";
+import { HelloRequest } from "./helloworld/helloworld_pb";
 
 const initialState = {
   inputText: "Kubernetes",
@@ -18,9 +19,15 @@ class App extends React.Component<{}, State> {
   public render() {
     return (
       <div className="App">
-        <p>入力した文字をエコーするだけのアプリ</p>
-        <input type="text" value={this.state.inputText} onChange={this.onChange}/>
-        <button onClick={this.onClick}>Send</button>
+        <header>
+          <Navbar color="dark"  class="navbar navbar-default" bg="light" expand="lg">
+            <NavbarBrand href="#home" className="App-header-navbrand">Echo App</NavbarBrand>
+          </Navbar>
+        </header>
+        <br /><span className="App-title">Hello!</span><br />
+        <input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
+        <Button onClick={this.onClick} class="btn btn-primary" color="info">Submit</Button>
+        <hr />
         <p>{this.state.message}</p>
       </div>
     );
