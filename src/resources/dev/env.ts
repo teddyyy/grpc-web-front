@@ -1,3 +1,3 @@
 export class Env {
-    public proxyURL: string = 'http://34.85.109.210:8080';
+    public proxyURL: string = 'http://35.244.142.68/proxy';
 }
