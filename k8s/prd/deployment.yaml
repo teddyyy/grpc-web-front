@@ -17,7 +17,7 @@ spec:
         run: grpc-web-front
     spec:
       containers:
-      - image: asia.gcr.io/agdc-k8s/grpc-web-front:ed83e213a2cbe2285d2bea934c29510829d07f66
+      - image: asia.gcr.io/agdc-k8s/grpc-web-front:7df55f607901950b09ec735968ba62d220ede814
         name: grpc-web-front
         readinessProbe:
           httpGet:
