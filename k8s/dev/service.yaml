@@ -4,7 +4,7 @@ kind: Service
 metadata:
   name: grpc-web-front
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
   - name: front-port
     port: 3000
