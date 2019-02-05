@@ -5,6 +5,7 @@ metadata:
   name: grpc-web-front
 spec:
   type: LoadBalancer
+  loadBalancerIP: 35.221.114.196
   ports:
   - name: front-port
     port: 3000
