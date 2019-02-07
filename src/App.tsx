@@ -27,7 +27,7 @@ class App extends React.Component<{}, State> {
         </header>
         <br /><span className="App-title">Hello!</span><br />
         <input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
-        <Button onClick={this.onClick} class="btn btn-primary" color="danger">Submit</Button>
+        <Button onClick={this.onClick} class="btn btn-primary" color="info">Submit</Button>
         <hr />
         <p>From {this.state.region} : {this.state.message}</p>
       </div>
