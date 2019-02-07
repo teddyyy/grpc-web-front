@@ -202,7 +202,8 @@ proto.helloworld.HelloReply.prototype.toObject = function(opt_includeInstance) {
  */
 proto.helloworld.HelloReply.toObject = function(includeInstance, msg) {
   var f, obj = {
-    message: jspb.Message.getFieldWithDefault(msg, 1, "")
+    message: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    region: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -243,6 +244,10 @@ proto.helloworld.HelloReply.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {string} */ (reader.readString());
       msg.setMessage(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setRegion(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -279,6 +284,13 @@ proto.helloworld.HelloReply.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+  f = message.getRegion();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -294,6 +306,21 @@ proto.helloworld.HelloReply.prototype.getMessage = function() {
 /** @param {string} value */
 proto.helloworld.HelloReply.prototype.setMessage = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string region = 2;
+ * @return {string}
+ */
+proto.helloworld.HelloReply.prototype.getRegion = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.helloworld.HelloReply.prototype.setRegion = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

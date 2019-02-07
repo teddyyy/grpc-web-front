@@ -8,7 +8,8 @@ import { HelloRequest } from "./helloworld/helloworld_pb";
 
 const initialState = {
   inputText: "Kubernetes",
-  message: ""
+  message: "",
+  region: ""
 };
 type State = Readonly<typeof initialState>;
 
@@ -28,7 +29,7 @@ class App extends React.Component<{}, State> {
         <input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
         <Button onClick={this.onClick} class="btn btn-primary" color="danger">Submit</Button>
         <hr />
-        <p>{this.state.message}</p>
+        <p>From {this.state.region} : {this.state.message}</p>
       </div>
     );
   }
@@ -42,7 +43,10 @@ class App extends React.Component<{}, State> {
       if (err || ret === null) {
         throw err;
       }
-      this.setState({ message: ret.getMessage() });
+      this.setState({
+        message: ret.getMessage(),
+        region: ret.getRegion()
+      });
     });
   };
 
