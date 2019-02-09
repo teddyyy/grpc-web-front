@@ -1,7 +1,7 @@
 import "./App.css";
 import * as React from "react";
 
-import { Button, Navbar, NavbarBrand } from 'reactstrap';
+import { Alert, Button, Navbar, NavbarBrand, Input } from 'reactstrap';
 import { Env } from './resources/env';
 import { GreeterClient } from "./helloworld/HelloworldServiceClientPb";
 import { HelloRequest } from "./helloworld/helloworld_pb";
@@ -25,11 +25,14 @@ class App extends React.Component<{}, State> {
             <NavbarBrand href="#home" className="App-header-navbrand">Echo App</NavbarBrand>
           </Navbar>
         </header>
-        <br /><span className="App-title">Hello!</span><br />
-        <input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
-        <Button onClick={this.onClick} class="btn btn-primary" color="info">Submit</Button>
-        <hr />
-        <p>From {this.state.region} : {this.state.message}</p>
+        <br />
+        <div className="App-Content">
+          <span className="App-title">Hello!</span><br />
+          <Input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
+          <Button onClick={this.onClick} class="btn btn-primary" color="info">Submit</Button>
+          <hr />
+          { this.state.region && this.state.message && <Alert color="success">From {this.state.region} : {this.state.message}</Alert> }
+        </div>
       </div>
     );
   }

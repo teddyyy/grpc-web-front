@@ -30,6 +30,15 @@
   margin: 5px;
 }
 
+.App-Content {
+  position: relative;
+  width: 400px;
+  border-top: solid 4px gray;
+  padding: 3em 1em 1em;
+  border: 1px solid #d8d8d8;
+  margin: auto;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
