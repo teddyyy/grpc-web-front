@@ -31,7 +31,7 @@ class App extends React.Component<{}, State> {
           <Input className="App-input" type="text" value={this.state.inputText} onChange={this.onChange} placeholder="input"/>
           <Button onClick={this.onClick} class="btn btn-primary" color="info">Submit</Button>
           <hr />
-          { this.state.region && this.state.message && <Alert color="success">From {this.state.region} : {this.state.message}</Alert> }
+          { this.state.region && this.state.message && <Alert color="warning">From {this.state.region} : {this.state.message}</Alert> }
         </div>
       </div>
     );
