@@ -10,6 +10,8 @@
     },
     "rules": {
         "ordered-imports": false,
-        "jsx-boolean-value": false
+        "jsx-boolean-value": false,
+        "interface-name" : [true, "never-prefix"],
+        "no-console": false
     }
 }
